@@ -30,13 +30,13 @@
                 <div>
                     <div class="flex flex-col gap-2 min-w-80 sm:min-w-full">
                         <label for="name" class="capitalize">Nama Penerima</label>
-                        <input type="text" name="name" id="name" class="w-full border-2 px-2 py-1 rounded-md focus:outline-none focus:ring-0" value="{{ old('price') }}">
+                        <input type="text" name="name" id="name" class="w-full border-2 px-2 py-1 rounded-md focus:outline-none focus:ring-0" value="{{ old('name') }}" required>
                     </div>
                 </div>
                 <div>
                     <div class="flex flex-col gap-2 min-w-80 sm:min-w-full">
                         <label for="phone" class="capitalize">Nomor HP Penerima</label>
-                        <input type="text" name="phone" id="phone" class="w-full border-2 px-2 py-1 rounded-md focus:outline-none focus:ring-0" value="{{ old('price') }}">
+                        <input type="text" name="phone" id="phone" class="w-full border-2 px-2 py-1 rounded-md focus:outline-none focus:ring-0" value="{{ old('phone') }}" required>
                     </div>
                 </div>
                 <div>

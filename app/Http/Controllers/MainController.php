@@ -27,11 +27,13 @@ class MainController extends Controller
 
             $prefix = "ORDER-". str_pad($product->merchant_id, 4, "0", STR_PAD_LEFT) . "-" . date("dmy"). "-";
             $numberOrder = Order::where('merchant_id', $product->merchant_id)->latest();
-            if(!is_null($numberOrder)){
+            if(!isset($numberOrder) && is_null($numberOrder)){
                 $numberOrder = $prefix . str_pad('1', 4, "0", STR_PAD_LEFT);
             }else{
-                $number = (int) substr($numberOrder->number, str_len($prefix));
-                $numberOrder .= $prefix . str_pad($number + 1, 4, "0", STR_PAD_LEFT);
+                $numberOrder = $numberOrder->first()->number;
+                $number = (int) substr($numberOrder, strlen($prefix));
+                $number += 1;
+                $numberOrder = $prefix . str_pad($number, 4, "0", STR_PAD_LEFT);
             }
             $order = new Order();
             $order->number = $numberOrder;
